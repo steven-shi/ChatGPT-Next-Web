@@ -19,12 +19,12 @@ jobs:
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
-      # This example uses the docker login action
-      - uses: 'docker/login-action@v1'
-        with:
-          registry: 'us-east1-docker.pkg.dev' # or REGION-docker.pkg.dev
-          username: 'docker-registry@chooeki-210509.iam.gserviceaccount.com'
-          password: '${{ steps.auth.outputs.access_token }}'
+      # # This example uses the docker login action
+      # - uses: 'docker/login-action@v1'
+      #   with:
+      #     registry: 'us-east1-docker.pkg.dev' # or REGION-docker.pkg.dev
+      #     username: 'docker-registry@chooeki-210509.iam.gserviceaccount.com'
+      #     password: '${{ steps.auth.outputs.access_token }}'
 
       # This example runs "docker login" directly to Artifact Registry.
       - run: |-
