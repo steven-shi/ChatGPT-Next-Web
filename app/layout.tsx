@@ -10,8 +10,8 @@ import { getServerSideConfig } from "./config/server";
 const serverConfig = getServerSideConfig();
 
 export const metadata: Metadata = {
-  title: "NextChat",
-  description: "Your personal ChatGPT Chat Bot.",
+  title: "Chooeki Next Web",
+  description: "Chooeki Chat Bot.",
   viewport: {
     width: "device-width",
     initialScale: 1,
