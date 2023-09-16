@@ -18,6 +18,7 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
       - uses: RafikFarhad/push-to-gcr-github-action@v5-beta
         with:
