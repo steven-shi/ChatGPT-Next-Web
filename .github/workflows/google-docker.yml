@@ -17,18 +17,16 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
         with:
-          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+          service_account: 'my-service-account@my-project.iam.gserviceaccount.com'
 
-      # # This example uses the docker login action
-      # - uses: 'docker/login-action@v1'
-      #   with:
-      #     registry: 'us-east1-docker.pkg.dev' # or REGION-docker.pkg.dev
-      #     username: 'docker-registry@chooeki-210509.iam.gserviceaccount.com'
-      #     password: '${{ steps.auth.outputs.access_token }}'
-
-      # This example runs "docker login" directly to Artifact Registry.
-      - run: |-
-          echo '${{ steps.auth.outputs.access_token }}' | docker login -u oauth2accesstoken --password-stdin https://us-east1-docker.pkg.dev
+      - uses: RafikFarhad/push-to-gcr-github-action@v5-beta
+        with:
+          registry: us-east1-docker.pkg.dev
+          project_id: chooeki
+          image_name: chatgpt-next-web
+          image_tag: latest
+          dockerfile: ./Dockerfile
+          context: ./
 
 
         
