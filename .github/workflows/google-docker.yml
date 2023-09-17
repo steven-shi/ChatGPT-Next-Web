@@ -7,6 +7,11 @@ jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -16,7 +21,7 @@ jobs:
         uses: google-github-actions/auth@v1
         with:
           token_format: access_token
-          workload_identity_provider: github-provider
+          workload_identity_provider: projects/1040217469160/locations/global/workloadIdentityPools/github-pool/providers/github-provider 
           service_account: docker-registry@chooeki-210509.iam.gserviceaccount.com
           access_token_lifetime: 300s
 
